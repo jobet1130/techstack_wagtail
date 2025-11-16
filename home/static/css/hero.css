@@ -1,0 +1,57 @@
+/* =================================================================================
+   Hero Block Styles
+   ============================================================================== */
+
+.hero.hero-block {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* Hide overflowing animation parts */
+    color: white;
+}
+
+.hero.hero-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradient overlay */
+    z-index: 1;
+}
+
+.hero.hero-block .hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    /* Ken Burns Effect */
+    animation: kenburns 20s ease-out infinite;
+}
+
+.hero.hero-block .hero-body {
+    position: relative;
+    z-index: 2;
+}
+
+.hero.hero-block .title,
+.hero.hero-block .subtitle {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1.05) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.1) translate(-1%, 1%);
+    }
+    100% {
+        transform: scale(1.05) translate(0, 0);
+    }
+}

@@ -1,0 +1,41 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline has-text-centered">
+            {% for point in self.points %}
+                <div class="column is-one-third">
+                    <div class="box p-5 mb-4" style="background-color: white;">
+                        <div class="is-flex is-justify-content-center mb-4">
+                            <div class="icon is-large" style="background-color: hsl(217, 71%, 53%); padding: 1rem; border-radius: 50%;">
+                                {% if point.title == "Education" %}
+                                    <svg class="fa-2x" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;" width="32" height="32">
+                                        <path d="M12 6C12 6 10.2757 4.36585 9.5 4C7.72778 4.90873 6 6.39131 6 9C6 11.6087 7.72778 13.0913 9.5 14C10.2757 13.6341 12 12 12 12C12 12 13.7243 13.6341 14.5 14C16.2722 13.0913 18 11.6087 18 9C18 6.39131 16.2722 4.90873 14.5 4C13.7243 4.36585 12 6 12 6Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12 20C13.7243 19.6341 15.5 18 15.5 18C17.2722 17.0913 19 15.6087 19 13C19 10.3913 17.2722 8.90873 15.5 8C14.7243 8.36585 13 10 13 10H11C11 10 9.27574 8.36585 8.5 8C6.72778 8.90873 5 10.3913 5 13C5 15.6087 6.72778 17.0913 8.5 18C8.5 18 10.2757 19.6341 12 20Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                {% elif point.title == "Innovation" %}
+                                    <svg class="fa-2x" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;" width="32" height="32">
+                                        <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                {% elif point.title == "Community" %}
+                                    <svg class="fa-2x" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;" width="32" height="32">
+                                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M17 3.13C17.8604 3.3503 18.623 3.8507 19.1676 4.55231C19.7122 5.25392 20.0078 6.11683 20.0078 7.005C20.0078 7.89317 19.7122 8.75608 19.1676 9.45769C18.623 10.1593 17.8604 10.6597 17 10.88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                {% else %}
+                                    <svg class="fa-2x" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="color: white;" width="32" height="32">
+                                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <h3 class="title is-4" style="color: black;">{{ point.title }}</h3>
+                        <p class="subtitle is-6" style="color: black;">{{ point.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

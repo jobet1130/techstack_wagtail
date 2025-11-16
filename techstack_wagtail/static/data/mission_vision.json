@@ -1,0 +1,19 @@
+{
+  "points": [
+    {
+      "icon": "Users",
+      "title": "Education",
+      "description": "Providing free coding bootcamps and workshops to aspiring developers."
+    },
+    {
+      "icon": "Target",
+      "title": "Innovation",
+      "description": "Fostering a culture of innovation through hackathons and startup incubation."
+    },
+    {
+      "icon": "Handshake",
+      "title": "Community",
+      "description": "Building a strong, supportive network of tech enthusiasts and professionals."
+    }
+  ]
+}

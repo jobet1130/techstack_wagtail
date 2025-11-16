@@ -1,23 +1,9 @@
 /* =================================================================================
-   2. Sticky Header
-   - `is-sticky` class is applied via JavaScript when the user scrolls.
-   - Uses Bulma's shadow helpers.
+   Header Styles
    ============================================================================== */
 #sticky-header {
     background-color: #ffffff; /* Ensure white background */
     border-bottom: 1px solid #f0f0f0; /* Light border for separation */
-}
-
-#sticky-header.is-sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    animation: slideDown 0.3s ease-in-out;
 }
 
 /* Mobile menu fixes */
@@ -30,16 +16,39 @@
     transition: all 0.3s ease;
     width: 3.25rem;
     height: 3.25rem;
+    position: relative;
 }
 
 .navbar-burger span {
     transition: all 0.3s ease;
     height: 2px;
     width: 20px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    background-color: currentColor; /* Ensure spans are visible */
+}
+
+.navbar-burger span:nth-child(1) {
+    top: calc(50% - 6px);
+    transform-origin: center;
+}
+
+.navbar-burger span:nth-child(2) {
+    top: 50%;
+    margin-top: -1px;
+    transform-origin: center;
+}
+
+.navbar-burger span:nth-child(3) {
+    top: calc(50% + 6px);
+    transform-origin: center;
 }
 
 .navbar-burger.is-active span:nth-child(1) {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
+    top: 50% !important;
 }
 
 .navbar-burger.is-active span:nth-child(2) {
@@ -47,7 +56,8 @@
 }
 
 .navbar-burger.is-active span:nth-child(3) {
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
+    top: 50% !important;
 }
 
 @media screen and (max-width: 1023px) {
@@ -73,14 +83,7 @@
 }
 
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
+
 
 @keyframes fadeIn {
     from {

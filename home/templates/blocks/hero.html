@@ -1,0 +1,39 @@
+{% load static %}
+{% load wagtailimages_tags %}
+<section class="hero is-medium hero-block">
+    {% image self.hero_image original as hero_image %}
+    <div class="hero-background-image" style="background-image: url('{{ hero_image.url }}')"></div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            {% if self.hero_title %}
+            <h1 class="title is-1 has-text-white">
+                {{ self.hero_title }}
+            </h1>
+            {% endif %}
+            {% if self.hero_subtitle %}
+            <h2 class="subtitle is-3 has-text-white">
+                {{ self.hero_subtitle }}
+            </h2>
+            {% endif %}
+            {% if self.hero_buttons %}
+            <div class="buttons is-centered">
+                {% for button in self.hero_buttons %}
+                    {% if forloop.first %}
+                        <a href="{{ button.url }}" class="button is-warning is-large">
+                            {{ button.text }}
+                        </a>
+                    {% elif forloop.last %}
+                        <a href="{{ button.url }}" class="button is-success is-large">
+                            {{ button.text }}
+                        </a>
+                    {% else %}
+                        <a href="{{ button.url }}" class="button {{ button.class_str|default:'is-primary' }} is-large">
+                            {{ button.text }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
