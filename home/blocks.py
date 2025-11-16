@@ -1,6 +1,8 @@
 from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
-
+from wagtail.images.models import Image
+from django.template.loader import render_to_string
+import json
 class ButtonBlock(blocks.StructBlock):
     """A single call-to-action button."""
     text = blocks.CharBlock(required=True, max_length=50, help_text="Button text")
@@ -54,3 +56,32 @@ class MissionVisionBlock(blocks.StructBlock):
         template = "blocks/mission_vision.html"
         icon = "list-ul"
         label = "Mission Points"
+
+class ProgramCardBlock(blocks.StructBlock):
+    """A single program card."""
+    title = blocks.CharBlock(required=True, max_length=100, help_text="The title of the program.")
+    short_description = blocks.RichTextBlock(required=True, help_text="A short description of the program.")
+    image = ImageChooserBlock(required=True, help_text="The image for the program card.")
+    page = blocks.PageChooserBlock(required=True, help_text="The page to link to for this program.")
+
+    class Meta:
+        icon = 'doc-full'
+        label = 'Program Card'
+
+class FeaturedProgramsBlock(blocks.StructBlock):
+    """
+    A section to display featured programs.
+    """
+    title = blocks.CharBlock(required=True, max_length=100, default="Featured Programs", help_text="The title of the section.")
+    subtitle = blocks.TextBlock(required=False, help_text="The subtitle for the section.")
+    programs = blocks.ListBlock(
+        ProgramCardBlock(),
+        help_text="Add program cards to display."
+    )
+    see_all_button_text = blocks.CharBlock(default="See All Programs", required=True, max_length=50, help_text="Text for the 'See All Programs' button.")
+    see_all_button_page = blocks.PageChooserBlock(required=True, help_text="The page to link to for the 'See All Programs' button.")
+
+    class Meta:
+        template = "blocks/featured_programs.html"
+        icon = "folder-open-inverse"
+        label = "Featured Programs"

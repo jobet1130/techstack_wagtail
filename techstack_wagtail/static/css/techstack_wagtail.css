@@ -1,37 +1,20 @@
-/**
- * =================================================================================================
- * TechStackPH Global CSS for jQuery/Bulma
- *
- * This file is designed to work alongside `global.js` and uses the Bulma CSS framework.
- * It provides platform-agnostic styling for UI components managed by jQuery, suitable for
- * frameworks like Wagtail or WordPress.
- *
- * NOTE: This file is for demonstration purposes and is NOT integrated with the Next.js/React
- *       application's primary stylesheet (`globals.css`).
- * =================================================================================================
- */
-
+/* Root styles for the entire site */
 html, body {
     height: 100%;
-    background-color: #ffffff; /* Ensure white background */
-}
-
-body {
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 .site-wrapper {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     background-color: #ffffff; /* Ensure white background */
+    /* Removed flex properties that can interfere with sticky positioning */
 }
 
 main {
-    flex-grow: 1;
     background-color: #ffffff; /* Ensure white background */
 }
+
 /* =================================================================================
    1. Global Loader
    - A full-screen overlay for AJAX loading states. Bulma doesn't have a built-in
@@ -55,7 +38,6 @@ main {
     width: 4rem;
     height: 4rem;
 }
-
 
 /* =================================================================================
    2. Sticky Header
@@ -83,7 +65,6 @@ main {
     }
 }
 
-
 /* =================================================================================
    3. Form Styling (.ajax-form)
    - Uses Bulma's form and message components for validation feedback.
@@ -104,7 +85,6 @@ main {
     /* Bulma's built-in spinner for buttons */
     position: absolute !important;
 }
-
 
 /* =================================================================================
    4. Skeleton Loaders
@@ -135,7 +115,6 @@ main {
     color: #f0f0f0;
     border-radius: 4px;
 }
-
 
 /* =================================================================================
    5. UI Components

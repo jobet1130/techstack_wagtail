@@ -20,12 +20,17 @@ class HomePage(Page):
         ('mission_vision', MissionVisionBlock()),
     ], use_json_field=True, null=True, blank=True, help_text="The mission and vision section")
 
+    featured_programs = StreamField([
+        ('featured_programs', FeaturedProgramsBlock()),
+    ], use_json_field=True, null=True, blank=True, help_text="The featured programs section")
+
     content_panels = Page.content_panels + [
         FieldPanel('subtitle'),
         FieldPanel('body'),
         FieldPanel('mission_vision'),
+        FieldPanel('featured_programs'),
     ]
 
-    class Meta:
+    class Meta(Page.Meta):
         verbose_name = "Home Page"
         verbose_name_plural = "Home Pages"

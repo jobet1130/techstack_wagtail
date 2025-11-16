@@ -1,0 +1,44 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<section id="featured-programs-section" class="section has-background-light">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered" style="color: black;">{{ value.title }}</h2>
+    {% if value.subtitle %}
+      <p class="subtitle is-5 has-text-centered featured-programs-subtitle" style="color: black;">{{ value.subtitle }}</p>
+    {% endif %}
+
+    <!-- Program cards -->
+    <div class="columns is-multiline mt-6">
+      {% for program in value.programs %}
+        <div class="column is-one-third">
+          <div class="card" style="background-color: white; color: black;">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                {% image program.image fill-800x600 %}
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4" style="color: black;">{{ program.title }}</p>
+              <div class="content" style="color: black; display: block;">
+                {% include_block program.short_description %}
+              </div>
+              {% if program.page %}
+                <a href="{% pageurl program.page %}" class="button is-primary">Learn More</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="has-text-centered mt-6">
+      {% if value.see_all_button_page %}
+        <a href="{% pageurl value.see_all_button_page %}" class="button is-primary">
+          <span>{{ value.see_all_button_text }}</span>
+          <span class="icon">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

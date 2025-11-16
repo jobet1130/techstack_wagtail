@@ -4,6 +4,21 @@
 #sticky-header {
     background-color: #ffffff; /* Ensure white background */
     border-bottom: 1px solid #f0f0f0; /* Light border for separation */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Add transform to create a new stacking context */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Add padding to body to prevent content jump when header is fixed */
+body {
+    padding-top: 70px; /* Approximate height of the header */
 }
 
 /* Mobile menu fixes */
@@ -81,9 +96,6 @@
 #sticky-header .navbar-item:hover {
     text-decoration: none;
 }
-
-
-
 
 @keyframes fadeIn {
     from {
