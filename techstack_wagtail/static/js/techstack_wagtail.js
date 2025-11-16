@@ -326,7 +326,7 @@ jQuery(document).ready(function($) {
          * @constructor
          */
         constructor() {
-            this.stickyHeaderSelector = '#sticky-header';
+            this.stickyHeaderSelector = '.sticky-header'; // Changed from ID to class selector
             this.mobileMenuButton = '#mobile-menu-toggle';
             this.mobileNav = '#navbarBasicExample';
             this.backToTopButton = '#back-to-top';

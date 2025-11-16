@@ -28,6 +28,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.css' %}">
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/techstack_wagtail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
@@ -37,12 +38,16 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        {# Header #}
+        {% include "includes/header.html" %}
         {% block content %}{% endblock %}
 
         {# JQuery #}
         <script type="text/javascript" src="{% static 'js/jquery-3.7.1.js' %}"></script>
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/techstack_wagtail.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/header.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}

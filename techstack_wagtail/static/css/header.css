@@ -1,0 +1,31 @@
+/* =================================================================================
+   2. Sticky Header
+   - `is-sticky` class is applied via JavaScript when the user scrolls.
+   - Uses Bulma's shadow helpers.
+   ============================================================================== */
+#sticky-header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+
+#sticky-header .navbar-item:hover {
+    text-decoration: none;
+}
+
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
