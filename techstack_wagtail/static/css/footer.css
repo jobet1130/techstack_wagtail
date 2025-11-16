@@ -1,0 +1,50 @@
+/* =================================================================================
+   Footer Styles
+   ============================================================================== */
+
+.footer {
+    background-color: hsl(225, 33%, 97%); /* Light grey background */
+    padding: 1rem 1.5rem; /* Even more reduced vertical padding */
+    color: hsl(0, 0%, 15%); /* darker text for better readability */
+}
+
+.footer .footer-logo-icon {
+    background-color: hsl(212, 100%, 52%);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.footer a:not(.button) {
+    color: hsl(0, 0%, 15%); /* darker color for better readability */
+}
+
+.footer a:not(.button):hover {
+    color: hsl(212, 100%, 52%); /* primary color */
+}
+
+.footer .subtitle {
+    color: hsl(0, 0%, 0%); /* black color for better readability */
+    text-transform: none;
+    font-weight: 600;
+}
+
+.footer .content p {
+    font-size: 0.875rem;
+    color: hsl(0, 0%, 15%); /* darker text for better readability */
+}
+
+.footer input.input {
+    background-color: #ffffff; /* White background for better visibility */
+    color: hsl(0, 0%, 15%); /* Dark text for better readability */
+    border-color: hsl(0, 0%, 80%); /* Light border */
+}
+
+.footer input.input::placeholder {
+    color: hsl(0, 0%, 40%); /* Medium grey placeholder text */
+    opacity: 1; /* Ensure full opacity */
+}
+
+.footer input.input:focus {
+    border-color: hsl(212, 100%, 52%); /* Primary color border on focus */
+    box-shadow: 0 0 0 0.125em rgba(33, 150, 243, 0.25); /* Subtle focus shadow */
+}

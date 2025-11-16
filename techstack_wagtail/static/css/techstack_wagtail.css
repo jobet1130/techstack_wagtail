@@ -11,10 +11,27 @@
  * =================================================================================================
  */
 
-/* Import Bulma - In a real application, this is often better handled via a <link> tag in the HTML head. */
-@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+html, body {
+    height: 100%;
+    background-color: #ffffff; /* Ensure white background */
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+}
 
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff; /* Ensure white background */
+}
+
+main {
+    flex-grow: 1;
+    background-color: #ffffff; /* Ensure white background */
+}
 /* =================================================================================
    1. Global Loader
    - A full-screen overlay for AJAX loading states. Bulma doesn't have a built-in

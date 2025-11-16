@@ -1,0 +1,61 @@
+<footer class="footer">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-quarter">
+                 <a class="is-flex is-align-items-center" href="/">
+                    <span class="icon is-medium">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="has-text-white footer-logo-icon"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+                    </span>
+                    <span class="has-text-weight-bold ml-2">TechStackPH</span>
+                </a>
+                <p class="mt-4">Empowering Filipino communities through technology, education, and innovation.</p>
+                <div class="mt-4">
+                    <a href="#" class="mr-2"><span class="icon"><i class="fab fa-twitter"></i></span></a>
+                    <a href="#" class="mr-2"><span class="icon"><i class="fab fa-facebook"></i></span></a>
+                    <a href="#" class="mr-2"><span class="icon"><i class="fab fa-linkedin"></i></span></a>
+                </div>
+            </div>
+            <div class="column">
+                <h5 class="subtitle is-6 has-text-weight-semibold">Quick Links</h5>
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/programs">Programs</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/news">News</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                 <h5 class="subtitle is-6 has-text-weight-semibold">Get Involved</h5>
+                <ul>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h5 class="subtitle is-6 has-text-weight-semibold">Stay Updated</h5>
+                <p>Subscribe to our newsletter for the latest news and events.</p>
+                <form class="ajax-form mt-4" action="/api/subscribe" method="POST">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary is-fullwidth" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="content has-text-centered">
+            <p>&copy; {% now "Y" %} TechStackPH. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Add Font Awesome for social icons -->
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>

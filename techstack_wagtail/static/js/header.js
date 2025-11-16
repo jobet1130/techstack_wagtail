@@ -12,16 +12,30 @@ jQuery(document).ready(function($) {
      */
 
     const stickyHeaderSelector = '#sticky-header';
-    const mobileMenuButton = '#mobile-menu-toggle';
-    const mobileNav = '#navbarBasicExample';
+    const mobileMenuButton = '.navbar-burger';
+    const mobileNav = '.navbar-menu';
 
     /**
      * @description Initializes the mobile menu toggle functionality.
      */
     function initMobileMenu() {
-        $(mobileMenuButton).on('click', () => {
-            $(mobileMenuButton).toggleClass('is-active');
+        // Close mobile menu on desktop view
+        if ($(window).width() > 1023) {
+            $(mobileMenuButton).removeClass('is-active');
+            $(mobileNav).removeClass('is-active');
+        }
+
+        $(mobileMenuButton).on('click', function() {
+            $(this).toggleClass('is-active');
             $(mobileNav).toggleClass('is-active');
+        });
+
+        // Close mobile menu when resizing to desktop
+        $(window).on('resize', function() {
+            if ($(window).width() > 1023) {
+                $(mobileMenuButton).removeClass('is-active');
+                $(mobileNav).removeClass('is-active');
+            }
         });
     }
 

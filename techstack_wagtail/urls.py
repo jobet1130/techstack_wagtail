@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
-
+from . import views
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -13,6 +13,12 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
+    path('api/events/', views.api_events, name='api_events'),
+    path('api/blog/', views.api_blog, name='api_blog'),
+    path('api/programs/', views.api_programs, name='api_programs'),
+    path('api/contact', views.api_contact, name='api_contact'),
+    path('api/subscribe', views.api_subscribe, name='api_subscribe'),
+    path('api/volunteer', views.api_volunteer, name='api_volunteer'),
 ]
 
 
