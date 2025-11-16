@@ -1,0 +1,164 @@
+/**
+ * =================================================================================================
+ * TechStackPH Global CSS for jQuery/Bulma
+ *
+ * This file is designed to work alongside `global.js` and uses the Bulma CSS framework.
+ * It provides platform-agnostic styling for UI components managed by jQuery, suitable for
+ * frameworks like Wagtail or WordPress.
+ *
+ * NOTE: This file is for demonstration purposes and is NOT integrated with the Next.js/React
+ *       application's primary stylesheet (`globals.css`).
+ * =================================================================================================
+ */
+
+/* Import Bulma - In a real application, this is often better handled via a <link> tag in the HTML head. */
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+
+
+/* =================================================================================
+   1. Global Loader
+   - A full-screen overlay for AJAX loading states. Bulma doesn't have a built-in
+     full-page loader, so we create one.
+   ============================================================================== */
+#global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none; /* Initially hidden */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* We can use Bulma's "loader" component inside our custom container. */
+#global-loader .loader {
+    width: 4rem;
+    height: 4rem;
+}
+
+
+/* =================================================================================
+   2. Sticky Header
+   - `is-sticky` class is applied via JavaScript when the user scrolls.
+   - Uses Bulma's shadow helpers.
+   ============================================================================== */
+#sticky-header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+/* =================================================================================
+   3. Form Styling (.ajax-form)
+   - Uses Bulma's form and message components for validation feedback.
+   ============================================================================== */
+.ajax-form .form-messages .notification {
+    margin-bottom: 1rem;
+}
+
+/* The .is-invalid class will be added by JS to fields that fail validation.
+   Bulma uses .is-danger for this purpose, but we'll map it. */
+.ajax-form .input.is-invalid,
+.ajax-form .textarea.is-invalid {
+    border-color: hsl(348, 100%, 61%); /* Bulma's danger color */
+}
+
+/* The spinner will be added to buttons in a loading state. */
+.button.is-loading::after {
+    /* Bulma's built-in spinner for buttons */
+    position: absolute !important;
+}
+
+
+/* =================================================================================
+   4. Skeleton Loaders
+   - Uses Bulma's "placeholder" styles, which are part of the `bulma-helpers` extension
+     or can be custom-defined. For this file, we'll create simple ones.
+   ============================================================================== */
+@keyframes placeholder-glow {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.skeleton-loader .card-image,
+.skeleton-loader .placeholder {
+  animation: placeholder-glow 2s ease-in-out infinite;
+  background: #f5f5f5;
+  border: 1px solid #dbdbdb;
+  color: transparent;
+  cursor: wait;
+}
+.skeleton-loader .card-image {
+    height: 200px;
+    background-color: #f0f0f0;
+}
+.skeleton-loader .title.is-4,
+.skeleton-loader .subtitle.is-6 {
+    background: #f0f0f0;
+    color: #f0f0f0;
+    border-radius: 4px;
+}
+
+
+/* =================================================================================
+   5. UI Components
+   - Accordion and Back-to-Top Button styles.
+   ============================================================================== */
+.accordion-header {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #dbdbdb;
+    font-weight: bold;
+}
+.accordion-header.is-active {
+    background-color: #e8e8e8;
+}
+
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    border: 1px solid #dbdbdb;
+    border-top: none;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: hsl(217, 71%, 53%); /* Bulma primary blue */
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#back-to-top:hover {
+    background-color: hsl(217, 71%, 48%);
+}
